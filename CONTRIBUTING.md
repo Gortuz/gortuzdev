@@ -56,7 +56,7 @@ Usa el área del sitio que cambia. Si un cambio toca varias, elige la principal 
 
 - El **cuerpo** explica el *porqué* y lo que no es obvio. Separa el título con una línea en blanco y corta las líneas a ~72 caracteres. Las viñetas están bien.
 - `BREAKING CHANGE: ...` en el pie si algo deja de funcionar como antes (por ejemplo, cambian las URLs).
-- **Sin líneas `Co-Authored-By:` de herramientas de IA.** El autor de los commits es Alan. Los agentes que ayudan no se agregan como coautores, ni en commits ni en descripciones de PR.
+- Si un agente de IA hizo o ayudó con el cambio, añade su línea `Co-Authored-By:` al final.
 
 ### Ejemplos
 
