@@ -22,3 +22,16 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# personal data: the CV is the content source but stays on this machine
+CV_*.md
+
+# local AI tooling
+.agents/
+
+# impeccable: local-only state (design.json, surfaces/ and live/config.json are committed)
+.impeccable/config.local.json
+.impeccable/hook.cache.json
+.impeccable/live/sessions/
+.impeccable/live/annotations/
+.impeccable/live/roots.json

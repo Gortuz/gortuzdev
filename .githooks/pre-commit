@@ -1,0 +1,19 @@
+#!/bin/sh
+# Blocks private or local-only files and makes sure the site still builds. See CONTRIBUTING.md §5.
+blocked=$(git diff --cached --name-only --diff-filter=ACMR | grep -E '(^|/)CV_.*\.md$|(^|/)\.env($|\.)|^\.agents/|^\.impeccable/(config\.local\.json|hook\.cache\.json|live/(sessions|annotations)/|live/roots\.json)')
+if [ -n "$blocked" ]; then
+  echo "✗ These files must never be committed (CONTRIBUTING.md §5):"
+  printf '    %s\n' $blocked
+  echo "  Unstage them with: git restore --staged <file>"
+  exit 1
+fi
+
+if git diff --cached --name-only | grep -Eq '^(src/|public/|astro\.config|package\.json|pnpm-lock\.yaml)'; then
+  echo "→ Building the site before committing…"
+  log="${TMPDIR:-/tmp}/gortuzdev-precommit-build.log"
+  if ! pnpm build > "$log" 2>&1; then
+    tail -20 "$log"
+    echo "✗ The build failed; fix it before committing."
+    exit 1
+  fi
+fi
