@@ -1,0 +1,364 @@
+---
+// Header.astro - Sticky nav strip: logo mark, section links, language switch, theme switch
+import Diamond from './Diamond.astro';
+import type { Content } from '../data/content';
+
+interface Props {
+  t: Content;
+}
+
+const { t } = Astro.props;
+const home = t.lang === 'es' ? '/' : '/en/';
+---
+
+<a class="skip-link" href="#main">{t.nav.skip}</a>
+<header class="site-header" data-open="false">
+  <div class="wrap bar">
+    <a href={home} class="brand">
+      <Diamond class="mark" edge={0.75} />
+      <span>gortuz.dev</span>
+    </a>
+
+    <button
+      type="button"
+      class="menu-toggle"
+      aria-expanded="false"
+      aria-controls="site-menu"
+      data-open-label={t.nav.openMenu}
+      data-close-label={t.nav.closeMenu}
+      aria-label={t.nav.openMenu}
+    >
+      <span class="bars" aria-hidden="true"><span></span><span></span><span></span></span>
+    </button>
+
+    <nav id="site-menu" class="menu" aria-label={t.lang === 'es' ? 'Principal' : 'Main'}>
+      <ul class="links">
+        <li><a href="#trabajo" data-section="trabajo">{t.nav.work}</a></li>
+        <li><a href="#perfil" data-section="perfil">{t.nav.profile}</a></li>
+        <li><a href="#contacto" data-section="contacto">{t.nav.contact}</a></li>
+      </ul>
+      <div class="controls">
+        <a class="lang" href={t.nav.switchHref} hreflang={t.lang === 'es' ? 'en' : 'es'} lang={t.lang === 'es' ? 'en' : 'es'} aria-label={t.nav.switchLabel}>{t.nav.switchText}</a>
+        <button
+          type="button"
+          class="theme"
+          data-to-dark={t.nav.toDark}
+          data-to-light={t.nav.toLight}
+          aria-label={t.nav.toDark}
+        >
+          <!-- A square cut on the 45° diagonal: half ground, half ink -->
+          <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true" focusable="false">
+            <rect x="1" y="1" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" />
+            <polygon points="17,1 17,17 1,17" fill="currentColor" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  // Phone menu: the nav becomes a full-screen panel behind a three-line button.
+  const header = document.querySelector<HTMLElement>('.site-header');
+  const toggle = header?.querySelector<HTMLButtonElement>('.menu-toggle');
+  const phone = window.matchMedia('(max-width: 760px)');
+
+  const setMenu = (open: boolean) => {
+    if (!header || !toggle) return;
+    header.dataset.open = String(open);
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', (open ? toggle.dataset.closeLabel : toggle.dataset.openLabel) ?? '');
+    document.documentElement.classList.toggle('menu-open', open);
+    // Keep keyboard focus inside the menu: everything behind it goes inert
+    document.querySelectorAll<HTMLElement>('#main, .site-footer, .skip-link, .site-header .brand').forEach((el) => {
+      el.inert = open;
+    });
+    if (open) header.querySelector<HTMLAnchorElement>('.links a')?.focus();
+  };
+
+  toggle?.addEventListener('click', () => setMenu(header?.dataset.open !== 'true'));
+  header?.querySelectorAll('.links a').forEach((link) => link.addEventListener('click', () => setMenu(false)));
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && header?.dataset.open === 'true') {
+      setMenu(false);
+      toggle?.focus();
+    }
+  });
+  phone.addEventListener('change', () => setMenu(false));
+
+  // Theme switch: flips between light and dark and remembers the choice.
+  const root = document.documentElement;
+  const button = document.querySelector<HTMLButtonElement>('.site-header .theme');
+
+  const current = (): 'light' | 'dark' => {
+    const set = root.dataset.theme;
+    if (set === 'light' || set === 'dark') return set;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  };
+
+  const label = () => {
+    if (!button) return;
+    const dark = current() === 'dark';
+    button.setAttribute('aria-label', (dark ? button.dataset.toLight : button.dataset.toDark) ?? '');
+    button.setAttribute('aria-pressed', String(dark));
+  };
+
+  // Keep the browser chrome colour in step with a manual choice
+  const syncChrome = () => {
+    if (!root.dataset.theme) return;
+    const color = root.dataset.theme === 'dark' ? '#121212' : '#fbf9f5';
+    document.querySelectorAll('meta[name="theme-color"]').forEach((meta) => meta.setAttribute('content', color));
+  };
+
+  button?.addEventListener('click', () => {
+    const next = current() === 'dark' ? 'light' : 'dark';
+    root.dataset.theme = next;
+    try { localStorage.setItem('theme', next); } catch {}
+    label();
+    syncChrome();
+  });
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', label);
+  label();
+  syncChrome();
+
+  // Live state in lime: the nav link of the section on screen carries a solid green rule.
+  const links = document.querySelectorAll<HTMLAnchorElement>('.site-header [data-section]');
+  const observer = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        links.forEach((link) => {
+          const on = link.dataset.section === entry.target.id;
+          link.classList.toggle('current', on);
+          if (on) link.setAttribute('aria-current', 'location');
+          else link.removeAttribute('aria-current');
+        });
+      }
+    },
+    { rootMargin: '-45% 0px -50% 0px' }
+  );
+  links.forEach((link) => {
+    const section = document.getElementById(link.dataset.section ?? '');
+    if (section) observer.observe(section);
+  });
+</script>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--ground);
+    border-bottom: 1px solid var(--rule-quiet);
+  }
+
+  .bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: calc(var(--m) * 2);
+    height: calc(var(--m) * 9);
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--m) * 1.5);
+    color: var(--ink);
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .brand :global(.mark) {
+    width: 32px;
+    shape-rendering: geometricPrecision;
+  }
+
+  .menu {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--m) * 5);
+  }
+
+  .links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: calc(var(--m) * 5);
+  }
+
+  .links a {
+    position: relative;
+    display: inline-block;
+    padding-block: var(--m);
+    color: var(--ink);
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  /* State by line: hover draws a straight rule under the link; the current section keeps it in lime */
+  .links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 2px;
+    height: 2px;
+    background: var(--live-ink);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 320ms var(--ease-out);
+  }
+
+  .links a:hover::after,
+  .links a:focus-visible::after,
+  .links a.current::after {
+    transform: scaleX(1);
+  }
+
+  .controls {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--m) * 2);
+  }
+
+  .lang,
+  .theme {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 32px;
+    min-width: 32px;
+    padding: 2px var(--m);
+    border: 2px solid var(--rule);
+    border-radius: 0;
+    background: transparent;
+    color: var(--ink);
+    font: inherit;
+    font-size: 15px;
+    line-height: 1.4;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+  }
+
+  .theme {
+    appearance: none;
+    cursor: pointer;
+    padding-inline: calc(var(--m) / 2);
+  }
+
+  .lang:hover,
+  .theme:hover {
+    background: var(--plane);
+    border-color: var(--plane);
+    color: var(--on-fill);
+  }
+
+  /* Three straight lines; open, the outer two cross on the 45° axis */
+  .menu-toggle {
+    display: none;
+    appearance: none;
+    width: 44px;
+    height: 44px;
+    margin-right: calc(var(--m) * -1);
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: var(--ink);
+    cursor: pointer;
+  }
+
+  .bars {
+    position: relative;
+    display: block;
+    width: 24px;
+    height: 16px;
+    margin-inline: auto;
+  }
+
+  .bars span {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: currentColor;
+    transition: transform 320ms var(--ease-out), opacity 200ms var(--ease-out);
+  }
+
+  .bars span:nth-child(1) { top: 0; }
+  .bars span:nth-child(2) { top: 7px; }
+  .bars span:nth-child(3) { top: 14px; }
+
+  [data-open="true"] .bars span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  [data-open="true"] .bars span:nth-child(2) { opacity: 0; }
+  [data-open="true"] .bars span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  @media (max-width: 760px) {
+    .menu-toggle { display: block; }
+
+    /* The panel wipes down from the bar, a straight edge, no fade */
+    .menu {
+      position: fixed;
+      inset: calc(var(--m) * 9) 0 0 0;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: space-between;
+      gap: calc(var(--m) * 4);
+      padding: calc(var(--m) * 3) var(--margin) calc(var(--m) * 5);
+      background: var(--ground);
+      overflow-y: auto;
+      clip-path: inset(0 0 100% 0);
+      visibility: hidden;
+      transition: clip-path 420ms var(--ease-out), visibility 0s linear 420ms;
+    }
+
+    [data-open="true"] .menu {
+      clip-path: inset(0 0 0 0);
+      visibility: visible;
+      transition: clip-path 420ms var(--ease-out), visibility 0s;
+    }
+
+    .links {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+    }
+
+    .links li {
+      border-bottom: 2px solid var(--rule);
+    }
+
+    .links a {
+      display: block;
+      padding-block: calc(var(--m) * 2.5);
+      font-size: clamp(36px, 11vw, 48px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      font-variation-settings: "wdth" 125;
+    }
+
+    .links a::after {
+      bottom: -2px;
+      height: 4px;
+    }
+
+    .lang,
+    .theme {
+      min-height: 44px;
+      min-width: 44px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .menu, [data-open="true"] .menu, .bars span { transition: none; }
+  }
+
+  :global(html.menu-open) {
+    overflow: hidden;
+  }
+</style>
