@@ -1,0 +1,219 @@
+---
+// Contact.astro - The close: a violet 45° facet at the edge, the email at poster scale
+import Arrow from './Arrow.astro';
+import { EMAIL, LINKS, type Content } from '../data/content';
+
+interface Props {
+  t: Content;
+}
+
+const { t } = Astro.props;
+---
+
+<section id="contacto" class="contact" aria-labelledby="contact-heading">
+  <svg class="facet" viewBox="0 0 500 1000" aria-hidden="true" focusable="false">
+    <polygon points="500,0 500,1000 0,500" fill="#673ab7" />
+    <polygon class="shade" points="500,0 0,500 260,470" />
+    <polyline points="500,0 0,500 500,1000" fill="none" stroke="#161616" stroke-width="4" />
+  </svg>
+
+  <div class="wrap grid inner">
+    <h2 id="contact-heading">{t.contact.heading}</h2>
+    <p class="body">{t.contact.body}</p>
+
+    <div class="email-row">
+      <a class="email" href={`mailto:${EMAIL}`}>{EMAIL.split('@')[0]}@<wbr />{EMAIL.split('@')[1]}</a>
+      <button
+        type="button"
+        class="copy"
+        data-email={EMAIL}
+        data-copied={t.contact.copied}
+        data-failed={t.contact.copyFailed}
+      >
+        <span class="copy-text">{t.contact.copy}</span>
+      </button>
+      <span class="copy-status visually-hidden" role="status" aria-live="polite"></span>
+    </div>
+
+    <ul class="links">
+      <li>
+        <a href={LINKS.linkedin} target="_blank" rel="noopener noreferrer">
+          LinkedIn <Arrow direction="diagonal" size={18} />
+        </a>
+      </li>
+      <li>
+        <a href={LINKS.github} target="_blank" rel="noopener noreferrer">
+          GitHub <Arrow direction="diagonal" size={18} />
+        </a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('.contact .copy').forEach((button) => {
+    const label = button.querySelector('.copy-text');
+    const status = button.parentElement?.querySelector('.copy-status');
+    const original = label?.textContent ?? '';
+    let timer: number | undefined;
+
+    button.addEventListener('click', async () => {
+      let message = button.dataset.copied ?? '';
+      try {
+        await navigator.clipboard.writeText(button.dataset.email ?? '');
+        button.classList.add('done');
+      } catch {
+        message = button.dataset.failed ?? '';
+      }
+      if (label) label.textContent = message;
+      if (status) status.textContent = message;
+      window.clearTimeout(timer);
+      timer = window.setTimeout(() => {
+        if (label) label.textContent = original;
+        if (status) status.textContent = '';
+        button.classList.remove('done');
+      }, 2400);
+    });
+  });
+</script>
+
+<style>
+  .contact {
+    position: relative;
+    overflow: hidden;
+    background: var(--ground);
+    border-top: 2px solid var(--rule);
+    padding-block: calc(var(--m) * 16);
+  }
+
+  .facet {
+    position: absolute;
+    top: 0;
+    right: 0;
+    /* Fixed 1:2 box so the facet's edges stay at exactly 45° */
+    height: 100%;
+    width: auto;
+    aspect-ratio: 1 / 2;
+    pointer-events: none;
+  }
+
+  .inner {
+    position: relative;
+  }
+
+  h2 {
+    grid-column: 1 / span 9;
+    font-size: clamp(52px, 7.4vw, 112px);
+    line-height: 0.92;
+    letter-spacing: -0.04em;
+    font-variation-settings: "wdth" 125;
+  }
+
+  .body {
+    grid-column: 1 / span 6;
+    margin-top: calc(var(--m) * 4);
+    font-size: 21px;
+    line-height: 1.45;
+    color: var(--ink);
+  }
+
+  .email-row {
+    grid-column: 1 / span 9;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: calc(var(--m) * 3);
+    margin-top: calc(var(--m) * 8);
+    padding-top: calc(var(--m) * 3);
+    border-top: 3px solid var(--ink);
+  }
+
+  .email {
+    color: var(--action);
+    font-size: clamp(22px, 3.3vw, 48px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    text-decoration: none;
+    overflow-wrap: break-word;
+  }
+
+  .email:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 0.15em;
+  }
+
+  .copy {
+    appearance: none;
+    background: transparent;
+    border: 2px solid var(--ink);
+    border-radius: 0;
+    color: var(--ink);
+    font: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    padding: var(--m) calc(var(--m) * 2);
+    cursor: pointer;
+    transition: background-color 200ms var(--ease-out), color 200ms var(--ease-out);
+  }
+
+  .copy:hover {
+    background: var(--plane);
+    border-color: var(--plane);
+    color: var(--on-fill);
+  }
+
+  /* Confirmation is a live state: lime */
+  .copy.done {
+    background: var(--live);
+    border-color: var(--live);
+    color: #1a0933;
+  }
+
+  .shade {
+    fill: var(--facet-dark);
+  }
+
+  .links {
+    grid-column: 1 / span 9;
+    display: flex;
+    gap: calc(var(--m) * 5);
+    list-style: none;
+    margin-top: calc(var(--m) * 5);
+  }
+
+  .links a {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--m);
+    padding-block: var(--m);
+    color: var(--ink);
+    font-size: 19px;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: border-color 200ms var(--ease-out);
+  }
+
+  .links a:hover {
+    border-bottom-color: var(--ink);
+  }
+
+  @media (max-width: 1080px) {
+    h2, .email-row, .links { grid-column: 1 / span 10; }
+    .body { grid-column: 1 / span 8; }
+    /* Smaller screens: the facet sits behind the text as a quiet watermark */
+    .facet { opacity: var(--mark-opacity); }
+    .inner { z-index: 1; }
+  }
+
+  @media (max-width: 760px) {
+    .contact { padding-block: calc(var(--m) * 10); }
+    .facet { height: 76%; top: 12%; }
+    h2, .body, .email-row, .links { grid-column: 1 / -1; }
+    /* Sized to the viewport so the longest word ("something?") always fits the column */
+    h2 { font-size: min(11vw, 52px); font-variation-settings: "wdth" 100; }
+    .body { font-size: 18px; }
+  }
+</style>
