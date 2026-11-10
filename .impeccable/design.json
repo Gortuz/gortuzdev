@@ -1,0 +1,737 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-09T21:00:00Z",
+  "title": "Design System: gortuz.dev",
+  "extensions": {
+    "colorMeta": {
+      "ground": {
+        "role": "neutral",
+        "displayName": "Warm Paper",
+        "canonical": "#fbf9f5",
+        "tonalRamp": [
+          "#1d1a14",
+          "#363229",
+          "#524c41",
+          "#706a5d",
+          "#908979",
+          "#b1aa9a",
+          "#d4cfc3",
+          "#fbf9f5"
+        ]
+      },
+      "ground-alt": {
+        "role": "neutral",
+        "displayName": "Beige Paper",
+        "canonical": "#f2ede4",
+        "tonalRamp": [
+          "#1c1912",
+          "#353026",
+          "#514a3d",
+          "#6f675a",
+          "#8f8677",
+          "#b0a798",
+          "#d3ccbf",
+          "#f2ede4"
+        ]
+      },
+      "action": {
+        "role": "primary",
+        "displayName": "Brand Purple",
+        "canonical": "oklch(47.4% 0.186 294.8)",
+        "tonalRamp": [
+          "#120034",
+          "#30006a",
+          "#4c1395",
+          "#693cb9",
+          "#885fde",
+          "#a882ff",
+          "#cab3ff",
+          "#f0eaff"
+        ]
+      },
+      "plane": {
+        "role": "secondary",
+        "displayName": "Facet Violet",
+        "canonical": "oklch(47.4% 0.186 294.8)",
+        "tonalRamp": [
+          "#120034",
+          "#30006a",
+          "#4c1395",
+          "#693cb9",
+          "#885fde",
+          "#a882ff",
+          "#cab3ff",
+          "#f0eaff"
+        ]
+      },
+      "plane-deep": {
+        "role": "tertiary",
+        "displayName": "Facet Indigo",
+        "canonical": "oklch(34.7% 0.179 280.1)",
+        "tonalRamp": [
+          "#0a0036",
+          "#1f006e",
+          "#362499",
+          "#4f48be",
+          "#6c6ae3",
+          "#8c8eff",
+          "#b4bbff",
+          "#e9ecff"
+        ]
+      },
+      "edge": {
+        "role": "neutral",
+        "displayName": "Facet Edge",
+        "canonical": "oklch(20% 0 0)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#242424",
+          "#404040",
+          "#5d5d5d",
+          "#7d7d7d",
+          "#9e9e9e",
+          "#c4c4c4",
+          "#eeeeee"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Aubergine Ink",
+        "canonical": "oklch(19.6% 0.078 297.2)",
+        "tonalRamp": [
+          "#0e061c",
+          "#281b41",
+          "#443664",
+          "#625484",
+          "#8273a6",
+          "#a395c9",
+          "#c7bde4",
+          "#efecf9"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Soft Ink",
+        "canonical": "#2f2645",
+        "tonalRamp": [
+          "#120c1e",
+          "#2f2645",
+          "#463d5c",
+          "#605776",
+          "#7d7493",
+          "#9d95b1",
+          "#c2bcd2",
+          "#ebe8f1"
+        ]
+      },
+      "ink-muted": {
+        "role": "neutral",
+        "displayName": "Muted Ink",
+        "canonical": "#625a78",
+        "tonalRamp": [
+          "#130d22",
+          "#2c2540",
+          "#453d5b",
+          "#625a78",
+          "#807896",
+          "#a099b4",
+          "#c4bfd4",
+          "#ecebf2"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Structural Rule",
+        "canonical": "#1a0933"
+      },
+      "rule-quiet": {
+        "role": "neutral",
+        "displayName": "Quiet Rule",
+        "canonical": "rgba(26, 9, 51, 0.16)"
+      },
+      "facet-dark": {
+        "role": "tertiary",
+        "displayName": "Shade Facet (light)",
+        "canonical": "oklch(19.6% 0.078 297.2)",
+        "tonalRamp": [
+          "#100126",
+          "#291a43",
+          "#443760",
+          "#61567e",
+          "#81769d",
+          "#a298bd",
+          "#c7bee1",
+          "#f0ebfe"
+        ]
+      },
+      "live": {
+        "role": "secondary",
+        "displayName": "Live Lime",
+        "canonical": "oklch(79.5% 0.180 133.5)",
+        "tonalRamp": [
+          "#040f00",
+          "#142b00",
+          "#274b01",
+          "#3b6d01",
+          "#549018",
+          "#71b437",
+          "#94dc5b",
+          "#d4feba"
+        ]
+      },
+      "live-ink": {
+        "role": "secondary",
+        "displayName": "Live Line (light)",
+        "canonical": "oklch(51.8% 0.145 136.1)",
+        "tonalRamp": [
+          "#030f00",
+          "#102c00",
+          "#214c02",
+          "#336e02",
+          "#548f33",
+          "#78b15c",
+          "#a1d688",
+          "#dbf9ce"
+        ]
+      },
+      "on-fill": {
+        "role": "neutral",
+        "displayName": "On Fill",
+        "canonical": "oklch(100% 0 0)"
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "Sliver White",
+        "canonical": "oklch(100% 0 0)"
+      },
+      "ground-dark": {
+        "role": "neutral",
+        "displayName": "Night Black",
+        "canonical": "oklch(18.2% 0 0)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#242424",
+          "#404040",
+          "#5d5d5d",
+          "#7d7d7d",
+          "#9e9e9e",
+          "#c4c4c4",
+          "#eeeeee"
+        ]
+      },
+      "ground-alt-dark": {
+        "role": "neutral",
+        "displayName": "Night Grey",
+        "canonical": "oklch(22.6% 0 0)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#242424",
+          "#404040",
+          "#5d5d5d",
+          "#7d7d7d",
+          "#9e9e9e",
+          "#c4c4c4",
+          "#eeeeee"
+        ]
+      },
+      "ink-dark": {
+        "role": "neutral",
+        "displayName": "Night White",
+        "canonical": "oklch(97.0% 0 0)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#242424",
+          "#404040",
+          "#5d5d5d",
+          "#7d7d7d",
+          "#9e9e9e",
+          "#c4c4c4",
+          "#eeeeee"
+        ]
+      },
+      "ink-soft-dark": {
+        "role": "neutral",
+        "displayName": "Soft Ink (dark)",
+        "canonical": "oklch(87.0% 0 0)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#242424",
+          "#404040",
+          "#5d5d5d",
+          "#7d7d7d",
+          "#9e9e9e",
+          "#c4c4c4",
+          "#eeeeee"
+        ]
+      },
+      "ink-muted-dark": {
+        "role": "neutral",
+        "displayName": "Muted Ink (dark)",
+        "canonical": "oklch(71.5% 0 0)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#242424",
+          "#404040",
+          "#5d5d5d",
+          "#7d7d7d",
+          "#9e9e9e",
+          "#c4c4c4",
+          "#eeeeee"
+        ]
+      },
+      "action-dark": {
+        "role": "primary",
+        "displayName": "Brand Purple (dark)",
+        "canonical": "oklch(73.7% 0.091 300.5)",
+        "tonalRamp": [
+          "#100420",
+          "#291b3e",
+          "#46365f",
+          "#655382",
+          "#8572a7",
+          "#a792ce",
+          "#cdb8f4",
+          "#f1ebff"
+        ]
+      },
+      "rule-dark": {
+        "role": "neutral",
+        "displayName": "Structural Rule (dark)",
+        "canonical": "oklch(97.0% 0 0)"
+      },
+      "rule-quiet-dark": {
+        "role": "neutral",
+        "displayName": "Quiet Rule (dark)",
+        "canonical": "rgba(255, 255, 255, 0.14)"
+      },
+      "facet-dark-dark": {
+        "role": "tertiary",
+        "displayName": "Shade Facet (dark)",
+        "canonical": "oklch(34.7% 0.179 280.1)",
+        "tonalRamp": [
+          "#0a0036",
+          "#1f006e",
+          "#362499",
+          "#4f48be",
+          "#6c6ae3",
+          "#8c8eff",
+          "#b4bbff",
+          "#e9ecff"
+        ]
+      },
+      "live-ink-dark": {
+        "role": "secondary",
+        "displayName": "Live Line (dark)",
+        "canonical": "oklch(79.5% 0.180 133.5)",
+        "tonalRamp": [
+          "#040f00",
+          "#142b00",
+          "#274b01",
+          "#3b6d01",
+          "#549018",
+          "#71b437",
+          "#94dc5b",
+          "#d4feba"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The name in the hero only, two lines, normal width; min(9.4vw, 15vh) on short laptops."
+      },
+      "display-phone": {
+        "displayName": "Display (phone)",
+        "purpose": "The name at 760px and below: min(15.5vw, 64px)."
+      },
+      "headline": {
+        "displayName": "Section Head",
+        "purpose": "Work and Profile heads at expanded width (wdth 125)."
+      },
+      "headline-close": {
+        "displayName": "Closing Head",
+        "purpose": "Contact head at expanded width; see headline-close-phone below 760px."
+      },
+      "headline-close-phone": {
+        "displayName": "Closing Head (phone)",
+        "purpose": "Contact head at 760px and below: min(11vw, 52px) at wdth 100, so the longest word always fits the column."
+      },
+      "menu-link": {
+        "displayName": "Menu Link",
+        "purpose": "Section links in the phone menu panel, expanded like section heads, each over a 2px ink rule."
+      },
+      "title-lg": {
+        "displayName": "Billed Title, weight 3",
+        "purpose": "Work entry name for the largest shipped system."
+      },
+      "title-md": {
+        "displayName": "Billed Title, weight 2",
+        "purpose": "Work entry name, middle billing."
+      },
+      "title-sm": {
+        "displayName": "Billed Title, weight 1",
+        "purpose": "Work entry name, smallest billing."
+      },
+      "figure": {
+        "displayName": "Work Figure",
+        "purpose": "Work figures in Brand Purple, condensed, tabular lining numerals."
+      },
+      "strength-hero": {
+        "displayName": "Hero Strength",
+        "purpose": "The three hero strengths (what Alan brings) in Brand Purple, condensed and balanced; 28px on phones (strength-hero-phone)."
+      },
+      "contact-email": {
+        "displayName": "Contact Email",
+        "purpose": "Poster-scale address in Brand Purple in the close."
+      },
+      "role": {
+        "displayName": "Role Line",
+        "purpose": "The line under the name, in ink."
+      },
+      "action": {
+        "displayName": "Action",
+        "purpose": "Hero email action line; label at 800."
+      },
+      "statement": {
+        "displayName": "Statement",
+        "purpose": "Contact body line."
+      },
+      "statement-phone": {
+        "displayName": "Statement (phone)",
+        "purpose": "Contact body line at 760px and below."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Summaries, intro, bio, contact links, profile block titles; max 60ch."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running text and points; max 68ch."
+      },
+      "body-phone": {
+        "displayName": "Body (phone)",
+        "purpose": "Body and record rows at 16px; also the brand wordmark at 700."
+      },
+      "status": {
+        "displayName": "Status",
+        "purpose": "The availability line beside the lime square, soft ink."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Nav, meta, captions, stack lines, footer, buttons, language switch."
+      },
+      "caption": {
+        "displayName": "Caption",
+        "purpose": "Figure labels."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "The only easing; all transitions and the facet entrance."
+      },
+      {
+        "name": "facet-assemble",
+        "value": "per facet group: short translate along 45deg (6-8 drawing units) + opacity, 1100ms ease-out, stagger 60-480ms; edges at 640ms over 700ms; once",
+        "purpose": "Hero logo entrance; disabled under prefers-reduced-motion (facets at rest)."
+      },
+      {
+        "name": "rule-draw-nav",
+        "value": "transform scaleX 0 to 1 from left, 320ms ease-out",
+        "purpose": "Nav link hover/focus rule in the live line; stays drawn on the current section. Also the action arrow nudge (6px)."
+      },
+      {
+        "name": "rule-draw-entry",
+        "value": "transform scaleX 0 to 1 from left, 600ms ease-out",
+        "purpose": "Work entry hover rule in the live line."
+      },
+      {
+        "name": "fill-state",
+        "value": "background-color, color 200ms ease-out",
+        "purpose": "Copy button purple hover and lime copied state."
+      },
+      {
+        "name": "copied-hold",
+        "value": "2400ms",
+        "purpose": "How long the copied (or failed) label stays before reverting."
+      },
+      {
+        "name": "menu-cross",
+        "value": "outer lines translateY(+/-7px) rotate(+/-45deg), middle line opacity 0; 320ms ease-out (opacity 200ms)",
+        "purpose": "Phone menu button turning from three lines into an X on the 45-degree axis."
+      },
+      {
+        "name": "menu-wipe",
+        "value": "clip-path inset(0 0 100% 0) to inset(0), 420ms ease-out, no fade; visibility flips after close",
+        "purpose": "Phone menu panel wiping down from the bar. Instant under reduced motion."
+      },
+      {
+        "name": "card-recede",
+        "value": "opacity 1 to 0.4, no scale, 360ms ease-out",
+        "purpose": "Inactive work cards in the phone carousel; tick colour changes on the same timing. No transition under reduced motion."
+      },
+      {
+        "name": "carousel-nudge",
+        "value": "translateX 0 to -48px at 40% and back, 1100ms ease-out, 300ms delay; once, when the track is 40% in view",
+        "purpose": "Shows the phone work row moves sideways. Skipped under reduced motion."
+      },
+      {
+        "name": "carousel-height",
+        "value": "track height set to the active card's offsetHeight, overflow-y hidden; height 420ms ease-out",
+        "purpose": "Phone work track follows the active card so short roles leave no empty space below. No transition under reduced motion; cleared on desktop."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "phone",
+        "value": "760px",
+        "purpose": "Phone: menu button and full-screen panel, full-width work swipe carousel, inline stack groups with icons, 44px touch controls."
+      },
+      {
+        "name": "tablet",
+        "value": "1080px",
+        "purpose": "Tablet and below: big logo plane and contact facet drop behind the text at --mark-opacity."
+      },
+      {
+        "name": "stack-3col",
+        "value": "1180px"
+      },
+      {
+        "name": "container",
+        "value": "1440px"
+      },
+      {
+        "name": "short-laptop",
+        "value": "(min-width: 761px) and (max-height: 820px)"
+      },
+      {
+        "name": "theme-dark",
+        "value": ":root[data-theme=\"dark\"], or (prefers-color-scheme: dark) with no data-theme=\"light\""
+      }
+    ],
+    "themes": {
+      "default": "light",
+      "dark": {
+        "selectors": [
+          ":root[data-theme=\"dark\"]",
+          "@media (prefers-color-scheme: dark) :root:not([data-theme=\"light\"])"
+        ],
+        "tokenMap": {
+          "--ground": "ground-dark",
+          "--ground-alt": "ground-alt-dark",
+          "--ink": "ink-dark",
+          "--ink-soft": "ink-soft-dark",
+          "--ink-muted": "ink-muted-dark",
+          "--action": "action-dark",
+          "--rule": "rule-dark",
+          "--rule-quiet": "rule-quiet-dark",
+          "--facet-dark": "facet-dark-dark",
+          "--live-ink": "live-ink-dark"
+        },
+        "persistence": "localStorage 'theme' (light|dark), try/catch; inline head script applies it before paint; no saved value = system preference",
+        "themeColor": {
+          "light": "#fbf9f5",
+          "dark": "#121212"
+        },
+        "customValues": {
+          "--mark-opacity": "0.3"
+        }
+      }
+    },
+    "opacity": [
+      {
+        "name": "mark-opacity",
+        "value": "0.16",
+        "valueDark": "0.3",
+        "purpose": "Group opacity of the big logo plane and the contact facet when they sit behind the text at 1080px and below. Deliberate exception to the Flat Plane Rule; never applied to a surface."
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Outline Button (copy email)",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Square 2px ink outline; fills violet with on-fill text on hover and lime with dark aubergine text once the copy succeeds.",
+      "html": "<button type=\"button\" class=\"ds-btn-outline\">Copiar correo</button> <button type=\"button\" class=\"ds-btn-outline is-done\">Copiado</button>",
+      "css": ".ds-btn-outline { appearance: none; background: transparent; border: 2px solid var(--ink, #1a0933); border-radius: 0; color: var(--ink, #1a0933); font-family: var(--font, 'Archivo Variable', 'Helvetica Neue', Arial, sans-serif); font-size: 15px; font-weight: 700; padding: 8px 16px; cursor: pointer; transition: background-color 200ms cubic-bezier(0.16,1,0.3,1), color 200ms cubic-bezier(0.16,1,0.3,1); } .ds-btn-outline:hover { background: var(--plane, #673ab7); border-color: var(--plane, #673ab7); color: var(--on-fill, #ffffff); } .ds-btn-outline.is-done { background: var(--live, #8bd450); border-color: var(--live, #8bd450); color: #1a0933; } .ds-btn-outline:focus-visible { outline: 2px solid var(--live-ink, #3d7a12); outline-offset: 4px; }"
+    },
+    {
+      "name": "Action Line",
+      "kind": "custom",
+      "refersTo": "action-line",
+      "description": "Primary CTA: the email in ink over a 3px purple rule, purple label and straight arrow at the far end.",
+      "html": "<a class=\"ds-action\" href=\"#\"><span class=\"ds-action-email\">alansandovalproject@gmail.com</span><span class=\"ds-action-go\">Escribir <svg class=\"ds-arrow\" width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"square\" stroke-linejoin=\"miter\" aria-hidden=\"true\"><path d=\"M2 10h15M11 4l6 6-6 6\"/></svg></span></a>",
+      "css": ".ds-action { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-top: 16px; border-top: 3px solid var(--action, #673ab7); color: var(--ink, #1a0933); font-family: var(--font, 'Archivo Variable', Arial, sans-serif); font-size: clamp(17px, 1.6vw, 22px); font-weight: 700; text-decoration: none; background: var(--ground, #fbf9f5); } .ds-action-go { display: inline-flex; align-items: center; gap: 8px; color: var(--action, #673ab7); font-weight: 800; white-space: nowrap; } .ds-arrow { transition: translate 320ms cubic-bezier(0.16,1,0.3,1); } .ds-action:hover .ds-arrow, .ds-action:focus-visible .ds-arrow { translate: 6px 0; } .ds-action:hover .ds-action-email { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.25em; } .ds-action:focus-visible { outline: 2px solid var(--live-ink, #3d7a12); outline-offset: 4px; }"
+    },
+    {
+      "name": "Navigation Strip",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Sticky 72px strip above 760px: 32px inline logo mark, links that draw a 2px live-line rule on hover and keep it on the current section, two 32px square switches (language, theme) that fill violet on hover.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-brand\" href=\"#\">gortuz.dev</a><ul><li><a class=\"ds-nav-link\" href=\"#\" aria-current=\"location\">Trabajo</a></li><li><a class=\"ds-nav-link\" href=\"#\">Perfil</a></li><li><a class=\"ds-nav-link\" href=\"#\">Contacto</a></li><li><a class=\"ds-sq\" href=\"#\">EN</a></li><li><button type=\"button\" class=\"ds-sq ds-theme\" aria-label=\"Activar modo oscuro\" aria-pressed=\"false\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 18 18\" aria-hidden=\"true\"><rect x=\"1\" y=\"1\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"17,1 17,17 1,17\" fill=\"currentColor\"/></svg></button></li></ul></nav>",
+      "css": ".ds-nav { display: flex; align-items: center; justify-content: space-between; height: 72px; padding-inline: 24px; background: var(--ground, #fbf9f5); border-bottom: 1px solid var(--rule-quiet, rgba(26,9,51,0.16)); font-family: var(--font, 'Archivo Variable', 'Helvetica Neue', Arial, sans-serif); } .ds-nav ul { display: flex; align-items: center; gap: 40px; list-style: none; margin: 0; padding: 0; } .ds-nav-brand { color: var(--ink, #1a0933); font-weight: 700; font-size: 16px; text-decoration: none; } .ds-nav-link { position: relative; display: inline-block; padding-block: 8px; color: var(--ink, #1a0933); font-size: 15px; font-weight: 500; text-decoration: none; } .ds-nav-link::after { content: ''; position: absolute; left: 0; right: 0; bottom: 2px; height: 2px; background: var(--live-ink, #3d7a12); transform: scaleX(0); transform-origin: left; transition: transform 320ms cubic-bezier(0.16,1,0.3,1); } .ds-nav-link:hover::after, .ds-nav-link:focus-visible::after, .ds-nav-link[aria-current]::after { transform: scaleX(1); } .ds-sq { display: inline-flex; align-items: center; justify-content: center; min-height: 32px; min-width: 32px; padding: 2px 8px; border: 2px solid var(--rule, #1a0933); border-radius: 0; background: transparent; color: var(--ink, #1a0933); font: inherit; font-size: 15px; font-weight: 700; letter-spacing: 0.04em; line-height: 1.4; text-decoration: none; cursor: pointer; } .ds-theme { padding-inline: 5px; } .ds-sq:hover { background: var(--plane, #673ab7); border-color: var(--plane, #673ab7); color: var(--on-fill, #ffffff); } .ds-nav a:focus-visible, .ds-nav button:focus-visible { outline: 2px solid var(--live-ink, #3d7a12); outline-offset: 4px; }"
+    },
+    {
+      "name": "Phone Menu",
+      "kind": "nav",
+      "refersTo": "menu-link",
+      "description": "At 760px and below: a 44px three-line button that crosses into an X, opening a full-screen ground-colour panel under the bar with expanded links over 2px ink rules (current section 4px lime) and 44px switches at the bottom.",
+      "html": "<div class=\"ds-menu-demo\" data-open=\"true\"><div class=\"ds-menu-bar\"><span class=\"ds-menu-brand\">gortuz.dev</span><button type=\"button\" class=\"ds-menu-toggle\" aria-expanded=\"true\" aria-controls=\"ds-menu\" aria-label=\"Cerrar menú\"><span class=\"ds-bars\" aria-hidden=\"true\"><span></span><span></span><span></span></span></button></div><nav id=\"ds-menu\" class=\"ds-menu-panel\" aria-label=\"Principal\"><ul><li><a href=\"#\" aria-current=\"location\">Trabajo</a></li><li><a href=\"#\">Perfil</a></li><li><a href=\"#\">Contacto</a></li></ul><div class=\"ds-menu-controls\"><a class=\"ds-sq44\" href=\"#\">EN</a><button type=\"button\" class=\"ds-sq44\" aria-label=\"Activar modo oscuro\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 18 18\" aria-hidden=\"true\"><rect x=\"1\" y=\"1\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"17,1 17,17 1,17\" fill=\"currentColor\"/></svg></button></div></nav></div>",
+      "css": ".ds-menu-demo { width: 360px; background: var(--ground, #fbf9f5); color: var(--ink, #1a0933); font-family: var(--font, 'Archivo Variable', 'Helvetica Neue', Arial, sans-serif); } .ds-menu-bar { display: flex; align-items: center; justify-content: space-between; height: 72px; padding-inline: 24px; border-bottom: 1px solid var(--rule-quiet, rgba(26,9,51,0.16)); } .ds-menu-brand { font-weight: 700; font-size: 16px; } .ds-menu-toggle { appearance: none; width: 44px; height: 44px; margin-right: -8px; border: 0; border-radius: 0; background: transparent; color: var(--ink, #1a0933); cursor: pointer; } .ds-bars { position: relative; display: block; width: 24px; height: 16px; margin-inline: auto; } .ds-bars span { position: absolute; left: 0; width: 100%; height: 2px; background: currentColor; transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1), opacity 200ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-bars span:nth-child(1) { top: 0; } .ds-bars span:nth-child(2) { top: 7px; } .ds-bars span:nth-child(3) { top: 14px; } [data-open=\"true\"] .ds-bars span:nth-child(1) { transform: translateY(7px) rotate(45deg); } [data-open=\"true\"] .ds-bars span:nth-child(2) { opacity: 0; } [data-open=\"true\"] .ds-bars span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); } .ds-menu-panel { display: flex; flex-direction: column; justify-content: space-between; gap: 32px; min-height: 420px; padding: 24px 24px 40px; background: var(--ground, #fbf9f5); clip-path: inset(0 0 0 0); transition: clip-path 420ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-menu-panel ul { list-style: none; margin: 0; padding: 0; } .ds-menu-panel li { border-bottom: 2px solid var(--rule, #1a0933); } .ds-menu-panel a:not(.ds-sq44) { position: relative; display: block; padding-block: 20px; color: var(--ink, #1a0933); font-size: clamp(36px, 11vw, 48px); font-weight: 800; line-height: 1; letter-spacing: -0.03em; font-variation-settings: 'wdth' 125; text-decoration: none; } .ds-menu-panel a:not(.ds-sq44)::after { content: ''; position: absolute; left: 0; right: 0; bottom: -2px; height: 4px; background: var(--live-ink, #3d7a12); transform: scaleX(0); transform-origin: left; transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-menu-panel a:hover::after, .ds-menu-panel a:focus-visible::after, .ds-menu-panel a[aria-current]::after { transform: scaleX(1); } .ds-menu-controls { display: flex; gap: 16px; } .ds-sq44 { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; padding: 2px 8px; border: 2px solid var(--rule, #1a0933); border-radius: 0; background: transparent; color: var(--ink, #1a0933); font: inherit; font-size: 15px; font-weight: 700; letter-spacing: 0.04em; text-decoration: none; cursor: pointer; } .ds-sq44:hover { background: var(--plane, #673ab7); border-color: var(--plane, #673ab7); color: var(--on-fill, #ffffff); } .ds-menu-demo a:focus-visible, .ds-menu-demo button:focus-visible { outline: 2px solid var(--live-ink, #3d7a12); outline-offset: 4px; } @media (prefers-reduced-motion: reduce) { .ds-menu-panel, .ds-bars span { transition: none; } }"
+    },
+    {
+      "name": "Status Line",
+      "kind": "custom",
+      "refersTo": "status-line",
+      "description": "Availability under the role: a 8px lime square with a live-line outline, then the sentence in 15px/600 soft ink.",
+      "html": "<p class=\"ds-status\"><span class=\"ds-status-sq\" aria-hidden=\"true\"></span>Disponible para equipos backend o full stack</p>",
+      "css": ".ds-status { display: flex; align-items: center; gap: 12px; margin: 0; font-family: var(--font, 'Archivo Variable', 'Helvetica Neue', Arial, sans-serif); font-size: 15px; font-weight: 600; color: var(--ink-soft, #2f2645); background: var(--ground, #fbf9f5); } .ds-status-sq { width: 10px; height: 10px; flex-shrink: 0; background: var(--live, #8bd450); outline: 1px solid var(--live-ink, #3d7a12); outline-offset: 2px; }"
+    },
+    {
+      "name": "Work Entry",
+      "kind": "custom",
+      "refersTo": "work-entry",
+      "description": "Past work under a dashed 2px rule; hover draws a solid live-line rule from the left. Title billed by shipped weight; figures and bullets in purple.",
+      "html": "<article class=\"ds-entry\"><div class=\"ds-entry-meta\"><p class=\"ds-entry-period\">2024</p><p class=\"ds-entry-org\">UTN</p><p class=\"ds-muted\">Ibarra</p></div><div class=\"ds-entry-body\"><h3>UTN Móvil</h3><p class=\"ds-entry-summary\">Resumen del sistema en una frase de entrada.</p><div class=\"ds-entry-fig\"><span class=\"ds-fig-value\">91,3%</span><span class=\"ds-fig-label\">Calidad de uso</span></div><ul class=\"ds-points\"><li>Punto entregado en producción.</li></ul><p class=\"ds-entry-stack\">Flutter / NestJS / PostgreSQL</p></div></article>",
+      "css": ".ds-entry { position: relative; display: grid; grid-template-columns: 3fr 9fr; column-gap: 32px; padding: 40px 0 64px; background: var(--ground, #fbf9f5); color: var(--ink-soft, #2f2645); font-family: var(--font, 'Archivo Variable', Arial, sans-serif); font-size: 17px; line-height: 1.6; } .ds-entry::before, .ds-entry::after { content: ''; position: absolute; left: 0; right: 0; top: -2px; height: 2px; } .ds-entry::before { background: repeating-linear-gradient(90deg, var(--rule, #1a0933) 0 24px, transparent 24px 32px); } .ds-entry::after { background: var(--live-ink, #3d7a12); transform: scaleX(0); transform-origin: left; transition: transform 600ms cubic-bezier(0.16,1,0.3,1); } .ds-entry:hover::after { transform: scaleX(1); } .ds-entry-meta { font-size: 15px; line-height: 1.45; } .ds-entry-meta p { margin: 0; } .ds-entry-period { color: var(--ink, #1a0933); font-weight: 700; } .ds-entry-org { margin-top: 8px !important; } .ds-muted { color: var(--ink-muted, #625a78); } .ds-entry-body h3 { margin: 0; color: var(--ink, #1a0933); font-size: clamp(36px, 4.4vw, 64px); font-weight: 800; line-height: 1; letter-spacing: -0.035em; } .ds-entry-summary { margin: 16px 0 0; max-width: 60ch; font-size: 19px; line-height: 1.45; color: var(--ink, #1a0933); } .ds-entry-fig { display: flex; flex-direction: column; margin-top: 32px; } .ds-fig-value { color: var(--action, #673ab7); font-size: clamp(36px, 3.6vw, 52px); font-weight: 800; line-height: 1; letter-spacing: -0.03em; font-variation-settings: 'wdth' 75; font-variant-numeric: tabular-nums lining-nums; } .ds-fig-label { margin-top: 8px; font-size: 14px; color: var(--ink-muted, #625a78); } .ds-points { list-style: none; margin: 32px 0 0; padding: 0; max-width: 68ch; } .ds-points li { position: relative; padding-left: 32px; margin-top: 12px; } .ds-points li::before { content: ''; position: absolute; left: 0; top: 0.8em; width: 16px; height: 2px; background: var(--action, #673ab7); } .ds-entry-stack { margin: 32px 0 0; padding-top: 16px; border-top: 1px solid var(--rule-quiet, rgba(26,9,51,0.16)); color: var(--ink-muted, #625a78); font-size: 15px; font-weight: 500; }"
+    },
+    {
+      "name": "Work Carousel (phone)",
+      "kind": "custom",
+      "refersTo": "carousel-step",
+      "description": "At 760px and below: controls above the cards (44px square steps, segment ticks with the current one 4px lime, n / 4 counter), then full-content-width snap cards with no peeking neighbour (gap twice the page margin, every card stops the swipe); inactive cards at 40% opacity, no scale.",
+      "html": "<div class=\"ds-car\"><div class=\"ds-car-controls\"><button type=\"button\" class=\"ds-step ds-prev\" aria-label=\"Experiencia anterior\" disabled><svg width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"square\" stroke-linejoin=\"miter\" aria-hidden=\"true\"><path d=\"M2 10h15M11 4l6 6-6 6\"/></svg></button><ol class=\"ds-ticks\"><li class=\"on\"></li><li></li><li></li><li></li></ol><span class=\"ds-count\">1 / 4</span><button type=\"button\" class=\"ds-step\" aria-label=\"Siguiente experiencia\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"square\" stroke-linejoin=\"miter\" aria-hidden=\"true\"><path d=\"M2 10h15M11 4l6 6-6 6\"/></svg></button></div><ol class=\"ds-track\" tabindex=\"0\" aria-label=\"Trabajo\"><li class=\"ds-card is-active\"><h3>UTN Móvil</h3><p>Resumen del sistema en una frase de entrada.</p></li><li class=\"ds-card\"><h3>Sistema dos</h3><p>Resumen del sistema.</p></li><li class=\"ds-card\"><h3>Sistema tres</h3><p>Resumen del sistema.</p></li></ol></div>",
+      "css": ".ds-car { width: 360px; padding-inline: 24px; background: var(--ground, #fbf9f5); color: var(--ink, #1a0933); font-family: var(--font, 'Archivo Variable', 'Helvetica Neue', Arial, sans-serif); } .ds-car-controls { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; } .ds-step { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 2px solid var(--rule, #1a0933); border-radius: 0; background: transparent; color: var(--ink, #1a0933); cursor: pointer; } .ds-prev svg { transform: rotate(180deg); } .ds-step:hover:not(:disabled) { background: var(--plane, #673ab7); border-color: var(--plane, #673ab7); color: var(--on-fill, #ffffff); } .ds-step:disabled { opacity: 0.3; cursor: default; } .ds-step:focus-visible, .ds-track:focus-visible { outline: 2px solid var(--live-ink, #3d7a12); outline-offset: 4px; } .ds-ticks { display: flex; flex: 1; gap: 8px; list-style: none; margin: 0; padding: 0; } .ds-ticks li { flex: 1; height: 2px; background: var(--rule-quiet, rgba(26,9,51,0.16)); transition: background-color 360ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-ticks li.on { height: 4px; background: var(--live-ink, #3d7a12); } .ds-count { min-width: 3.5ch; text-align: center; font-size: 15px; font-weight: 700; font-variant-numeric: tabular-nums lining-nums; } .ds-track { display: flex; gap: 48px; list-style: none; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: none; align-items: start; } .ds-card { position: relative; flex: 0 0 100%; scroll-snap-align: start; scroll-snap-stop: always; padding: 24px 0 16px; opacity: 0.4; transition: opacity 360ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-card::before, .ds-card::after { content: ''; position: absolute; left: 0; right: 0; top: -2px; height: 2px; } .ds-card::before { background: repeating-linear-gradient(90deg, var(--rule, #1a0933) 0 24px, transparent 24px 32px); } .ds-card::after { background: var(--live-ink, #3d7a12); transform: scaleX(0); transform-origin: left; transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-card.is-active { opacity: 1; } .ds-card.is-active::after { transform: scaleX(1); } .ds-card h3 { margin: 0; font-size: clamp(36px, 4.4vw, 64px); font-weight: 800; line-height: 1; letter-spacing: -0.035em; } .ds-card p { margin: 16px 0 0; font-size: 17px; line-height: 1.45; } @media (prefers-reduced-motion: reduce) { .ds-card { transition: none; } }"
+    },
+    {
+      "name": "Fact Column",
+      "kind": "custom",
+      "refersTo": "fact-column",
+      "description": "Purple condensed figure over a caption, under a 2px ink rule; three across in the hero.",
+      "html": "<ul class=\"ds-facts\"><li><span class=\"ds-fact-value\">Fintech</span><span class=\"ds-fact-label\">Módulo de seguridad y API Gateway de una plataforma de pagos · Utransfer</span></li><li><span class=\"ds-fact-value\">91,3%</span><span class=\"ds-fact-label\">Calidad de uso del servicio Clubes/Grupos en UTN Móvil · ISO/IEC 25022</span></li><li><span class=\"ds-fact-value\">14.000</span><span class=\"ds-fact-label\">Fotografías revisadas automáticamente con Python y OpenCV · UTN</span></li></ul>",
+      "css": ".ds-facts { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 32px; list-style: none; margin: 0; padding: 0; background: var(--ground, #fbf9f5); font-family: var(--font, 'Archivo Variable', Arial, sans-serif); } .ds-facts li { border-top: 2px solid var(--rule, #1a0933); padding-top: 16px; } .ds-fact-value { display: block; color: var(--action, #673ab7); font-size: clamp(22px, 1.75vw, 26px); font-weight: 800; line-height: 1.02; letter-spacing: -0.02em; font-variation-settings: 'wdth' 75; text-wrap: balance; } .ds-fact-label { display: block; margin-top: 12px; font-size: 15px; line-height: 1.45; color: var(--ink-soft, #2f2645); }"
+    },
+    {
+      "name": "Stack Group",
+      "kind": "custom",
+      "refersTo": "stack-item",
+      "description": "Profile stack group under a 2px rule: each item a row of a 16px one-colour Simple Icons mark in currentColor (ink), 10px gap, the name; items with no published mark get the logo's diamond outline in muted ink. On phones items run inline with a 20px column gap and no separators.",
+      "html": "<div class=\"ds-group\"><h4>Infraestructura</h4><ul><li><svg class=\"ds-tech-icon\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"M13.09 23.549a1.54 1.54 0 0 1-2.18 0L.451 13.089a1.54 1.54 0 0 1 0-2.179l7.191-7.19 2.733 2.733a1.85 1.85 0 0 0 .964 2.326v6.66a1.849 1.849 0 1 0 1.54 0V8.957l2.508 2.508a1.85 1.85 0 1 0 1.09-1.09l-2.634-2.634a1.85 1.85 0 0 0-2.378-2.377L8.73 2.63 10.91.451a1.54 1.54 0 0 1 2.179 0l10.459 10.46a1.54 1.54 0 0 1 0 2.179z\" fill=\"currentColor\"/></svg><span>Git</span></li><li><svg class=\"ds-tech-icon ds-tech-generic\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" aria-hidden=\"true\"><polygon points=\"8,1.5 14.5,8 8,14.5 1.5,8\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg><span>SQL Server</span></li><li><svg class=\"ds-tech-icon ds-tech-generic\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" aria-hidden=\"true\"><polygon points=\"8,1.5 14.5,8 8,14.5 1.5,8\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg><span>Arquitectura hexagonal</span></li></ul></div>",
+      "css": ".ds-group { width: 240px; border-top: 2px solid var(--rule, #1a0933); padding-top: 16px; background: var(--ground-alt, #f2ede4); font-family: var(--font, 'Archivo Variable', Arial, sans-serif); } .ds-group h4 { margin: 0; color: var(--ink, #1a0933); font-size: 15px; font-weight: 700; line-height: 1.3; } .ds-group ul { list-style: none; margin: 12px 0 0; padding: 0; font-size: 15px; line-height: 1.4; color: var(--ink-soft, #2f2645); } .ds-group li { display: flex; align-items: flex-start; gap: 10px; padding-block: 5px; } .ds-tech-icon { flex-shrink: 0; margin-top: 1px; color: var(--ink, #1a0933); } .ds-tech-generic { color: var(--ink-muted, #625a78); } @media (max-width: 760px) { .ds-group ul { display: flex; flex-wrap: wrap; column-gap: 20px; margin-top: 8px; } }"
+    },
+    {
+      "name": "Logo Plane",
+      "kind": "custom",
+      "refersTo": "diamond",
+      "description": "The real logo at poster scale (geometry copied verbatim from the logo file): violet square, indigo facet, aubergine facet, white slivers, non-scaling near-black edges (3px at poster scale; 0.75px in the 32px header mark). Facet groups assemble once along 45 degrees; at rest under reduced motion. Full colour beside the text at 1081px and up; at 1080px and below it sits top-right behind the text at --mark-opacity (0.16 light, 0.3 dark).",
+      "html": "<svg class=\"ds-logo\" viewBox=\"0 0 214.95363 214.95358\" aria-hidden=\"true\"><g transform=\"matrix(-0.0078539,-0.99996916,-0.99996916,0.0078539,215.79775,214.10943)\"><g class=\"ds-f ds-f1\"><g transform=\"matrix(-0.01570732,-0.99987663,-0.99987663,0.01570732,216.63516,213.25872)\"><path d=\"M 1.41418,107.48 107.48,1.41422 213.546,107.48 107.48,213.546 Z\" fill=\"#673ab7\"/></g></g><g class=\"ds-f ds-f2\"><g transform=\"matrix(-0.01570732,-0.99987663,-0.99987663,0.01570732,216.63516,213.25872)\"><path d=\"M 94.86204,136.11506 107.22946,13.773675 209.90132,105.35664 Z\" fill=\"#311b92\"/></g></g><g class=\"ds-f ds-f3\"><path d=\"M 3.8411927,110.09462 108.63195,211.69365 79.441449,121.79808 Z\" fill=\"#1a0933\"/></g><g class=\"ds-f ds-f4\"><g transform=\"matrix(-0.01570732,-0.99987663,-0.99987663,0.01570732,216.63516,213.25872)\"><path d=\"M 108.0748,75.685514 107.6121,1.5800008 209.91737,105.46337 Z\" fill=\"#ffffff\"/><path d=\"m 105.66542,76.596945 0.85649,2.464215 -103.4797363,28.93633 z m -4.89473,1.531191 6.39215,-1.969059 -0.70207,134.828093 z\" fill=\"#ffffff\"/></g></g><g class=\"ds-f ds-edges\"><path d=\"M 105.81419,1.427285 213.5329,105.81419 109.14621,213.53294 1.4272879,109.14621 Z M 109.14621,213.53294 138.88977,107.02519 105.81419,1.427285 M 213.5329,105.81419 139.13369,106.94453 1.4272879,109.14621\" fill=\"none\" stroke=\"#161616\" stroke-width=\"3\" stroke-miterlimit=\"16\" vector-effect=\"non-scaling-stroke\"/></g></g></svg>",
+      "css": ".ds-logo { display: block; width: 320px; height: auto; overflow: visible; } @media (prefers-reduced-motion: no-preference) { .ds-f { animation: ds-facet-in 1100ms cubic-bezier(0.16,1,0.3,1) both; } .ds-f1 { --dx: 0px; --dy: 0px; animation-delay: 60ms; } .ds-f2 { --dx: 8px; --dy: -8px; animation-delay: 220ms; } .ds-f3 { --dx: -8px; --dy: 8px; animation-delay: 340ms; } .ds-f4 { --dx: 6px; --dy: 6px; animation-delay: 480ms; } .ds-edges { --dx: 0px; --dy: 0px; animation-delay: 640ms; animation-duration: 700ms; } } @keyframes ds-facet-in { from { transform: translate(var(--dx), var(--dy)); opacity: 0; } to { transform: translate(0,0); opacity: 1; } }"
+    },
+    {
+      "name": "Contact Close",
+      "kind": "custom",
+      "refersTo": "contact-close",
+      "description": "Close under a 2px rule: expanded head, purple poster-scale email over a 3px ink rule, copy button, outbound links, and a 45-degree violet facet on the right edge with a shade-facet upper plane. At 1080px and below the facet drops behind the text at --mark-opacity; on phones it is 76% of the section height, top 12%.",
+      "html": "<section class=\"ds-contact\"><svg class=\"ds-contact-facet\" viewBox=\"0 0 500 1000\" aria-hidden=\"true\"><polygon points=\"500,0 500,1000 0,500\" fill=\"#673ab7\"/><polygon points=\"500,0 0,500 260,470\" style=\"fill: var(--facet-dark, #1a0933)\"/><polyline points=\"500,0 0,500 500,1000\" fill=\"none\" stroke=\"#161616\" stroke-width=\"4\"/></svg><h2>¿Construimos algo?</h2><div class=\"ds-contact-row\"><a class=\"ds-contact-email\" href=\"#\">alansandovalproject@gmail.com</a></div><a class=\"ds-contact-link\" href=\"#\">LinkedIn <svg width=\"18\" height=\"18\" viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"square\" style=\"transform: rotate(-45deg)\" aria-hidden=\"true\"><path d=\"M2 10h15M11 4l6 6-6 6\"/></svg></a></section>",
+      "css": ".ds-contact { position: relative; overflow: hidden; background: var(--ground, #fbf9f5); border-top: 2px solid var(--rule, #1a0933); color: var(--ink, #1a0933); padding: 64px 32px; font-family: var(--font, 'Archivo Variable', Arial, sans-serif); } .ds-contact-facet { position: absolute; top: 0; right: 0; height: 100%; width: auto; aspect-ratio: 1 / 2; pointer-events: none; } .ds-contact h2 { position: relative; margin: 0; padding-right: 30%; font-size: clamp(52px, 7.4vw, 112px); font-weight: 800; line-height: 0.92; letter-spacing: -0.04em; font-variation-settings: 'wdth' 125; } .ds-contact-row { position: relative; margin-top: 40px; margin-right: 30%; padding-top: 24px; border-top: 3px solid var(--ink, #1a0933); } .ds-contact-email { color: var(--action, #673ab7); font-size: clamp(22px, 3.3vw, 48px); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; text-decoration: none; overflow-wrap: break-word; } .ds-contact-email:hover { text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 0.15em; } .ds-contact-link { position: relative; display: inline-flex; align-items: center; gap: 8px; margin-top: 32px; padding-block: 8px; color: var(--ink, #1a0933); font-size: 19px; font-weight: 600; text-decoration: none; border-bottom: 2px solid transparent; transition: border-color 200ms cubic-bezier(0.16,1,0.3,1); } .ds-contact-link:hover { border-bottom-color: var(--ink, #1a0933); } .ds-contact a:focus-visible { outline: 2px solid var(--live-ink, #3d7a12); outline-offset: 4px; } @media (max-width: 1080px) { .ds-contact-facet { opacity: var(--mark-opacity, 0.16); } .ds-contact > :not(.ds-contact-facet) { position: relative; z-index: 1; } } @media (max-width: 760px) { .ds-contact-facet { height: 76%; top: 12%; } }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Concert Poster for Shipped Work",
+    "overview": "**Creative North Star: \"The Concert Poster for Shipped Work\"**\n\nThe site is a Zürich-school typographic poster. By default it is printed on warm paper; in dark mode the same poster is printed on neutral black, so the logo, the purple, and the lime are the only colour on the page. Its only image is the brand mark itself: the real logo, enlarged to poster scale, a violet square on its point cut into an indigo facet, an aubergine facet, and white slivers, outlined in near-black. Everything else is one heavy grotesk set flush-left, ragged-right, on a strict 12-column grid, separated by straight 2px rules. Work is billed like acts on a poster: the bigger the shipped system, the bigger its name.\n\nDensity is generous and rhythmic, not airy. Distances come from one 8px module (the facet unit). Two colours speak. The logo's purple is the main highlight, spent on what has to read clearly: the action, the key figures, the bullets. Lime is the second brand colour, and it means one thing: live. It marks availability, the section you are in, the entry under the pointer, keyboard focus, and a confirmed copy. Depth does not exist: no shadows, no radius, no translucent layers; on tablets and phones the big marks drop behind the text as faint watermarks, the one sanctioned use of group opacity. State is drawn with line: a broken rule is past work, a solid lime rule is live or current, a solid purple rule is the action.\n\nThe world refuses the developer-template furniture (avatar, tagline, logo-chip grid, card rows) and its terminal clichés (monospace, prompts, blinking cursors, green text on black).",
+    "keyCharacteristics": [
+      "Light by default on warm white and beige paper; dark theme on neutral black and grey grounds, by system preference or by the header switch.",
+      "One typeface (Archivo Variable), varied by width axis rather than by a second family.",
+      "One module (8px), one grid (12 columns), one angle (45°).",
+      "Purple is the main highlight; lime marks live state only, as fill or line, never as text.",
+      "Straight lines only: rules, dashes, squares, square-capped arrows, diamond facets.",
+      "Flat planes; zero radius; zero shadow. At 1080px and below the big marks become watermarks behind the text.",
+      "Bilingual: Spanish at `/`, English at `/en/`, same composition."
+    ],
+    "rules": [
+      {
+        "name": "The Paper Ground Rule",
+        "body": "In the light theme, grounds are warm white or beige, nothing else. Purple and lime appear as small fills, lines, and type, or as a facet plane; neither ever becomes a section background.",
+        "section": "colors"
+      },
+      {
+        "name": "The Neutral Night Rule",
+        "body": "The dark theme's grounds and inks are neutral black and greys with no hue; the logo, the purple, and the lime are the only colour on a dark page. Never tint a dark ground or ink toward violet or aubergine, and never use the violet or the indigo as a ground. Every dark value is a reassignment of an existing custom property; components never branch on theme.",
+        "section": "colors"
+      },
+      {
+        "name": "The Clear Purple Rule",
+        "body": "Purple is the main highlight: what you can act on and the figures that carry the argument. If an element is neither, it wears ink.",
+        "section": "colors"
+      },
+      {
+        "name": "The Live Rule",
+        "body": "Lime means live, and only live: available now, the section on screen, the thing under the pointer or the keyboard, the copy that just succeeded. It is a fill (`live`) or a line (`live-ink`), never running text, never a section ground.",
+        "section": "colors"
+      },
+      {
+        "name": "The Logo-Plus-Lime Rule",
+        "body": "Every hue comes from the logo's facets or is a tint of the same aubergine (the light theme's inks), plus the one lime. The grounds and the dark theme's neutral greys are the only other colours. Technology marks never bring their brand colours; they take the text colour (`currentColor`) in both themes.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Face Rule",
+        "body": "Archivo Variable is the only family. Contrast is made with the width axis (75 / 100 / 125) and weight, never with a second typeface or a monospace.",
+        "section": "typography"
+      },
+      {
+        "name": "The Billing Rule",
+        "body": "A work entry's title size is set by how much of the system was shipped (weight 3, 2, 1), not by recency.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Plane Rule",
+        "body": "Nothing floats. Surfaces differ only by flat fill and are separated only by rules. One deliberate exception, chosen by the user: at 1080px and below the big marks (hero logo, contact facet) sit behind the text at Mark Opacity, as group opacity on the whole mark, never as a translucent panel or a tint on a surface. At 1081px and up they stay full-colour planes beside the text.",
+        "section": "elevation"
+      },
+      {
+        "name": "The State-by-Line Rule",
+        "body": "A broken rule means past or archived; a solid lime rule means live or current; a solid purple rule means the action. Links and entries draw their lime rule in from the left on hover; the current nav section keeps it. Only the square controls (language switch, theme switch, copy button, carousel steps) fill: purple on hover, lime when copying succeeds.",
+        "section": "shapes"
+      },
+      {
+        "name": "The One Angle Rule",
+        "body": "45° is the only diagonal. Everything else is horizontal or vertical.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "Do derive every distance from the 8px module and place every block on the 12-column grid.",
+      "Do set every light section on warm white (#fbf9f5) or beige (#f2ede4) paper, and every dark section on neutral black (#121212) or grey (#1c1c1c).",
+      "Do add new colours as custom properties with a value for each theme; components read the property and never branch on theme.",
+      "Do separate content with straight 2px rules; use 1px quiet rules only to subdivide inside a block.",
+      "Do draw state with line: dashed for past work, solid lime for live or current, purple for the action.",
+      "Do spend the brand purple on what must read clearly: actions, key figures, bullets, the caret.",
+      "Do spend lime only on live state: availability, the current section, hover and focus, a confirmed copy.",
+      "Do set new hierarchy with Archivo's width axis (125 for section heads, 75 for figures) before adding size.",
+      "Do build any new image from the logo's construction as flat facet planes on 45°.",
+      "Do set a big mark behind text only at 1080px and below, as group opacity at `--mark-opacity` with the text above it; at desktop widths keep it full colour beside the text.",
+      "Do give every motion a reduced-motion state that shows the end frame at rest.",
+      "Do give every phone touch control a 44px square hit area.",
+      "Do ship every surface in Spanish at `/` and English at `/en/` with the same composition."
+    ],
+    "donts": [
+      "Don't fill a section ground with the violet, the indigo, or lime; in dark mode the ground is neutral black or grey only, never tinted toward violet or aubergine.",
+      "Don't set running body text in purple; body is soft ink.",
+      "Don't set any text in lime; lime is a fill or a line, and text on a lime fill is dark aubergine.",
+      "Don't use lime for emphasis that isn't live state; emphasis is purple.",
+      "Don't round corners, add shadows, or use translucent glass layers; the Mark Opacity watermark is the only opacity on a mark, and it never applies to a surface.",
+      "Don't wrap content in cards or set labels and tags as pills.",
+      "Don't use colour gradients; the only linear-gradient allowed is the hard-stop dash pattern that draws a broken rule.",
+      "Don't add a second typeface, a monospace, or terminal devices (prompts, blinking cursors, green text on black).",
+      "Don't introduce any hue outside the logo's facets, their aubergine tints, the one lime, and the grounds.",
+      "Don't put small uppercase labels (eyebrows) above headings; a heading stands on its own rule.",
+      "Don't mark live state with a dot or a circle; the live marker is a square.",
+      "Don't use any diagonal other than 45°, or curved lines, in the world's own drawing; published technology marks keep their own shapes.",
+      "Don't give a technology mark its brand colour or a chip; it is a 16px `currentColor` mark beside its name."
+    ]
+  }
+}
