@@ -1,0 +1,27 @@
+---
+// Arrow.astro - Straight-line arrow, drawn to match the page's 2px rules
+interface Props {
+  direction?: 'right' | 'up' | 'diagonal';
+  size?: number;
+}
+
+const { direction = 'right', size = 20 } = Astro.props;
+const rotate = { right: 0, up: -90, diagonal: -45 }[direction];
+---
+
+<svg
+  class="arrow"
+  width={size}
+  height={size}
+  viewBox="0 0 20 20"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="square"
+  stroke-linejoin="miter"
+  aria-hidden="true"
+  focusable="false"
+  style={`transform: rotate(${rotate}deg)`}
+>
+  <path d="M2 10h15M11 4l6 6-6 6" />
+</svg>
