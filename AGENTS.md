@@ -23,4 +23,4 @@ Consult these guides before working on related tasks:
 
 ## Commits
 
-Follow [CONTRIBUTING.md](CONTRIBUTING.md) for every commit: Conventional Commits in English (`type(scope): summary`, ≤72 chars), one logical change per commit, Spanish and English content updated together, and never commit `CV_*.md`, `.env*`, `.agents/` or local `.impeccable/` state. Work on a branch, not `main`, and make sure `pnpm build` passes before committing.
+Follow [CONTRIBUTING.md](CONTRIBUTING.md) for every commit: Conventional Commits in English (`type(scope): summary`, ≤72 chars), one logical change per commit, Spanish and English content updated together, and never commit `CV_*.md`, `.env*`, `.agents/` or local `.impeccable/` state. Work on a branch, not `main`, and make sure `pnpm build` passes before committing. Do not add `Co-Authored-By` trailers or "Generated with" lines for AI tools to commits or pull requests.
