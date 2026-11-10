@@ -1,0 +1,65 @@
+---
+// Footer.astro - One ruled line: logo mark, name and place, back to top
+import logoSvg from '../assets/logo.svg';
+import Arrow from './Arrow.astro';
+import type { Content } from '../data/content';
+
+interface Props {
+  t: Content;
+}
+
+const { t } = Astro.props;
+---
+
+<footer class="site-footer">
+  <div class="wrap row">
+    <p class="line">
+      <img src={logoSvg.src} alt="" width="22" height="22" />
+      <span>{t.footer.line}</span>
+      <span class="year num">2026</span>
+    </p>
+    <a href="#top" class="top">{t.footer.top} <Arrow direction="up" size={16} /></a>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--ground-alt);
+    border-top: 1px solid var(--rule-quiet);
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: calc(var(--m) * 2);
+    padding-block: calc(var(--m) * 4);
+    font-size: 15px;
+  }
+
+  .line {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--m) * 1.5);
+    color: var(--ink-soft);
+  }
+
+  .year {
+    color: var(--ink-muted);
+  }
+
+  .top {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--m);
+    padding-block: var(--m);
+    color: var(--ink);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .top:hover {
+    text-decoration: underline;
+  }
+</style>
