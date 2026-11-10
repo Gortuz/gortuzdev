@@ -1,0 +1,29 @@
+---
+// Home.astro - The one-page portfolio, rendered per language
+import Layout from '../layouts/Layout.astro';
+import Header from './Header.astro';
+import Hero from './Hero.astro';
+import Work from './Work.astro';
+import Profile from './Profile.astro';
+import Contact from './Contact.astro';
+import Footer from './Footer.astro';
+import { content, type Lang } from '../data/content';
+
+interface Props {
+  lang: Lang;
+}
+
+const t = content[Astro.props.lang];
+---
+
+<Layout lang={t.lang} title={t.meta.title} description={t.meta.description}>
+  <div id="top"></div>
+  <Header t={t} />
+  <main id="main">
+    <Hero t={t} />
+    <Work t={t} />
+    <Profile t={t} />
+    <Contact t={t} />
+  </main>
+  <Footer t={t} />
+</Layout>

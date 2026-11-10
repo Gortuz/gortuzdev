@@ -1,0 +1,462 @@
+---
+// Work.astro - Shipped systems, billed by weight: the bigger the system, the bigger the type.
+import Arrow from './Arrow.astro';
+import type { Content } from '../data/content';
+
+interface Props {
+  t: Content;
+}
+
+const { t } = Astro.props;
+---
+
+<section id="trabajo" class="work" aria-labelledby="work-heading">
+  <div class="wrap">
+    <header class="grid head">
+      <h2 id="work-heading">{t.work.heading}</h2>
+      <p class="intro">{t.work.intro}</p>
+    </header>
+
+    <!-- Phone only: swipe controls. A lime segment marks the role on screen. -->
+    <div class="slider" aria-hidden="true">
+      <button type="button" class="step prev" aria-label={t.work.prev} tabindex="-1" disabled>
+        <Arrow direction="right" />
+      </button>
+      <ol class="ticks">
+        {t.work.items.map((_, i) => <li class:list={{ on: i === 0 }}></li>)}
+      </ol>
+      <span class="count num"><span class="now">1</span> / {t.work.items.length}</span>
+      <button type="button" class="step next" aria-label={t.work.next} tabindex="-1">
+        <Arrow direction="right" />
+      </button>
+    </div>
+
+    <ol class="entries" aria-label={t.work.heading}>
+      {t.work.items.map((item) => (
+        <li class:list={['entry', 'grid', `w${item.weight}`]}>
+          <div class="meta">
+            <p class="period num">{item.period}</p>
+            <p class="org">{item.org}</p>
+            <p class="place">{item.place}</p>
+            <p class="role">{item.role}</p>
+          </div>
+
+          <div class="body">
+            <h3>{item.title}</h3>
+            <p class="summary">{item.summary}</p>
+
+            {item.figures && (
+              <dl class="figures">
+                {item.figures.map((fig) => (
+                  <div>
+                    <dt class="fig-label">{fig.label}</dt>
+                    <dd class="fig-value num">{fig.value}</dd>
+                  </div>
+                ))}
+              </dl>
+            )}
+
+            <ul class="points">
+              {item.points.map((point) => <li>{point}</li>)}
+            </ul>
+
+            <p class="stack">
+              <span class="visually-hidden">{t.work.stackLabel}: </span>
+              {item.stack.join(' / ')}
+            </p>
+          </div>
+        </li>
+      ))}
+    </ol>
+
+
+  </div>
+</section>
+
+<script>
+  const phone = window.matchMedia('(max-width: 760px)');
+  const track = document.querySelector<HTMLElement>('.work .entries');
+  const slider = document.querySelector<HTMLElement>('.work .slider');
+  const entries = Array.from(track?.querySelectorAll<HTMLElement>('.entry') ?? []);
+  const ticks = Array.from(slider?.querySelectorAll('.ticks li') ?? []);
+  const now = slider?.querySelector('.now');
+  const prev = slider?.querySelector<HTMLButtonElement>('.prev');
+  const next = slider?.querySelector<HTMLButtonElement>('.next');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let active = 0;
+
+  // The row is as tall as the card on screen, so a short role leaves no empty space under it
+  const fit = () => {
+    if (!track) return;
+    if (!phone.matches) { track.style.height = ''; return; }
+    const card = entries[active];
+    if (card) track.style.height = `${card.offsetHeight}px`;
+  };
+
+  const show = (index: number) => {
+    active = index;
+    requestAnimationFrame(fit);
+    entries.forEach((entry, i) => entry.classList.toggle('is-active', i === index));
+    ticks.forEach((tick, i) => tick.classList.toggle('on', i === index));
+    if (now) now.textContent = String(index + 1);
+    if (prev) prev.disabled = index === 0;
+    if (next) next.disabled = index === entries.length - 1;
+  };
+
+  const go = (index: number) => {
+    const target = entries[Math.max(0, Math.min(entries.length - 1, index))];
+    if (!track || !target) return;
+    track.scrollTo({ left: target.offsetLeft - track.offsetLeft - parseFloat(getComputedStyle(track).paddingLeft), behavior: reduce.matches ? 'auto' : 'smooth' });
+  };
+
+  // The card most in view is the active one
+  const observer = new IntersectionObserver(
+    (items) => {
+      for (const item of items) {
+        if (item.isIntersecting) show(entries.indexOf(item.target as HTMLElement));
+      }
+    },
+    { root: track, threshold: 0.6 }
+  );
+
+  const setup = () => {
+    observer.disconnect();
+    if (phone.matches) {
+      track?.setAttribute('tabindex', '0');
+      slider?.setAttribute('aria-hidden', 'false');
+      prev?.removeAttribute('tabindex');
+      next?.removeAttribute('tabindex');
+      entries.forEach((entry) => observer.observe(entry));
+      show(active);
+    } else {
+      track?.removeAttribute('tabindex');
+      slider?.setAttribute('aria-hidden', 'true');
+      prev?.setAttribute('tabindex', '-1');
+      next?.setAttribute('tabindex', '-1');
+      entries.forEach((entry) => entry.classList.remove('is-active'));
+    }
+    fit();
+  };
+  window.addEventListener('resize', fit, { passive: true });
+
+  prev?.addEventListener('click', () => go(active - 1));
+  next?.addEventListener('click', () => go(active + 1));
+  track?.addEventListener('keydown', (event) => {
+    if (!phone.matches) return;
+    if (event.key === 'ArrowRight') { event.preventDefault(); go(active + 1); }
+    if (event.key === 'ArrowLeft') { event.preventDefault(); go(active - 1); }
+  });
+  phone.addEventListener('change', setup);
+  setup();
+
+  // A one-time nudge shows the row moves sideways
+  if (track && phone.matches && !reduce.matches) {
+    const hint = new IntersectionObserver((items) => {
+      if (!items[0].isIntersecting) return;
+      hint.disconnect();
+      track.classList.add('nudge');
+      track.addEventListener('animationend', () => track.classList.remove('nudge'), { once: true });
+    }, { threshold: 0.4 });
+    hint.observe(track);
+  }
+</script>
+
+<style>
+  .work {
+    padding-block: calc(var(--m) * 16) calc(var(--m) * 12);
+  }
+
+  .head {
+    align-items: end;
+    margin-bottom: calc(var(--m) * 8);
+  }
+
+  h2 {
+    grid-column: 1 / span 6;
+    font-size: clamp(56px, 7vw, 104px);
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    font-variation-settings: "wdth" 125;
+  }
+
+  .intro {
+    grid-column: 8 / span 5;
+    color: var(--ink-soft);
+    font-size: 19px;
+    line-height: 1.45;
+    padding-bottom: var(--m);
+  }
+
+  .entries {
+    list-style: none;
+  }
+
+  .entry {
+    position: relative;
+    padding-block: calc(var(--m) * 5) calc(var(--m) * 8);
+  }
+
+  /* State by line: every entry is past work, so its rule is broken */
+  .entry::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -2px;
+    height: 2px;
+    background: repeating-linear-gradient(90deg, var(--rule) 0 calc(var(--m) * 3), transparent calc(var(--m) * 3) calc(var(--m) * 4));
+  }
+
+  /* Hovering an entry draws a solid lime rule across it: the entry you're on is live */
+  .entry::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -2px;
+    height: 2px;
+    background: var(--live-ink);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 600ms var(--ease-out);
+  }
+
+  .entry:hover::after {
+    transform: scaleX(1);
+  }
+
+  .meta {
+    grid-column: 1 / span 3;
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  .period {
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  .org {
+    margin-top: var(--m);
+    color: var(--ink-soft);
+  }
+
+  .place {
+    color: var(--ink-muted);
+  }
+
+  .body {
+    grid-column: 4 / span 9;
+  }
+
+  .role {
+    margin-top: calc(var(--m) * 2);
+    padding-top: calc(var(--m) * 1.5);
+    border-top: 1px solid var(--rule-quiet);
+    color: var(--ink-soft);
+  }
+
+  h3 {
+    line-height: 1;
+    letter-spacing: -0.035em;
+  }
+
+  /* Billing weight */
+  .w3 h3 { font-size: clamp(36px, 4.4vw, 64px); }
+  .w2 h3 { font-size: clamp(30px, 3.2vw, 46px); }
+  .w1 h3 { font-size: clamp(24px, 2.3vw, 32px); }
+
+  .summary {
+    margin-top: calc(var(--m) * 2);
+    max-width: 60ch;
+    font-size: 19px;
+    line-height: 1.45;
+    color: var(--ink);
+  }
+
+  .figures {
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(var(--m) * 3) calc(var(--m) * 6);
+    margin-top: calc(var(--m) * 4);
+  }
+
+  .figures > div {
+    display: flex;
+    flex-direction: column-reverse;
+    min-width: calc(var(--m) * 18);
+  }
+
+  .fig-value {
+    color: var(--action);
+    font-size: clamp(36px, 3.6vw, 52px);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    font-variation-settings: "wdth" 75;
+  }
+
+  .fig-label {
+    margin-top: var(--m);
+    font-size: 14px;
+    color: var(--ink-muted);
+  }
+
+  .points {
+    list-style: none;
+    margin-top: calc(var(--m) * 4);
+    max-width: 68ch;
+  }
+
+  .points li {
+    position: relative;
+    padding-left: calc(var(--m) * 4);
+    margin-top: calc(var(--m) * 1.5);
+  }
+
+  /* Straight-line bullet */
+  .points li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.8em;
+    width: calc(var(--m) * 2);
+    height: 2px;
+    background: var(--action);
+  }
+
+  .stack {
+    margin-top: calc(var(--m) * 4);
+    padding-top: calc(var(--m) * 2);
+    border-top: 1px solid var(--rule-quiet);
+    color: var(--ink-muted);
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  @media (max-width: 1080px) {
+    h2 { grid-column: 1 / -1; }
+    .intro { grid-column: 1 / span 9; margin-top: calc(var(--m) * 3); }
+    .meta { grid-column: 1 / span 4; }
+    .body { grid-column: 5 / span 8; }
+  }
+
+  .slider {
+    display: none;
+  }
+
+  @media (max-width: 760px) {
+    .work { padding-block: calc(var(--m) * 10) calc(var(--m) * 6); }
+    .intro, .meta, .body { grid-column: 1 / -1; }
+    .head { margin-bottom: calc(var(--m) * 5); }
+
+    /* Phone: one role per screen width; swipe or step to the next, no peeking neighbour */
+    .entries {
+      display: flex;
+      gap: calc(var(--margin) * 2);
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      overscroll-behavior-x: contain;
+      transition: height 420ms var(--ease-out);
+      scrollbar-width: none;
+      align-items: start;
+    }
+
+    .entries::-webkit-scrollbar { display: none; }
+
+    .entry {
+      flex: 0 0 100%;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+      padding-block: calc(var(--m) * 3) calc(var(--m) * 2);
+      opacity: 0.4;
+      transition: opacity 360ms var(--ease-out);
+    }
+
+    .entry.is-active {
+      opacity: 1;
+    }
+
+    .entry.is-active::after {
+      transform: scaleX(1);
+    }
+
+    .nudge {
+      animation: nudge 1100ms var(--ease-out) 300ms;
+    }
+
+    .slider {
+      display: flex;
+      align-items: center;
+      gap: calc(var(--m) * 2);
+      margin-bottom: calc(var(--m) * 2);
+    }
+
+    .ticks {
+      display: flex;
+      flex: 1;
+      gap: var(--m);
+      list-style: none;
+    }
+
+    .ticks li {
+      flex: 1;
+      height: 2px;
+      background: var(--rule-quiet);
+      transition: background-color 360ms var(--ease-out);
+    }
+
+    .ticks li.on {
+      height: 4px;
+      background: var(--live-ink);
+    }
+
+    .count {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink);
+      min-width: 3.5ch;
+      text-align: center;
+    }
+
+    .step {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border: 2px solid var(--rule);
+      border-radius: 0;
+      background: transparent;
+      color: var(--ink);
+      cursor: pointer;
+    }
+
+    .prev :global(.arrow) { transform: rotate(180deg) !important; }
+
+    .step:hover:not(:disabled) {
+      background: var(--plane);
+      border-color: var(--plane);
+      color: var(--on-fill);
+    }
+
+    .step:disabled {
+      opacity: 0.3;
+      cursor: default;
+    }
+    .meta { display: flex; flex-wrap: wrap; column-gap: calc(var(--m) * 2); margin-bottom: calc(var(--m) * 3); }
+    .org { margin-top: 0; }
+    .role { flex-basis: 100%; margin-top: var(--m); }
+    .summary { font-size: 17px; }
+  }
+
+  @keyframes nudge {
+    0%, 100% { transform: translateX(0); }
+    40% { transform: translateX(-48px); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .entry, .entries { transition: none; }
+  }
+</style>

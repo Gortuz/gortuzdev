@@ -1,0 +1,67 @@
+---
+// TechIcon.astro - One-colour technology mark for the stack list (Simple Icons, CC0).
+// Icons take currentColor so they sit in the text colour of either theme; a tech
+// with no published mark (concepts, SQL Server, OCR) gets the logo's diamond outline.
+import {
+  siNestjs, siNodedotjs, siTypescript, siPython, siFlask, siOpencv, siOpenjdk, siDotnet,
+  siFlutter, siDart, siReact, siAngular, siJavascript, siPostgresql, siDocker, siGit,
+  siGithub, siRailway, siLinux, siNutanix, siCloudflare, siJsonwebtokens,
+} from 'simple-icons';
+
+interface Props {
+  name: string;
+}
+
+// Simple Icons dropped the Oracle mark; this is the project's existing Oracle glyph.
+const oracle = 'M16.412 4.412h-8.82a7.588 7.588 0 0 0-.008 15.176h8.828a7.588 7.588 0 0 0 0-15.176zm-.193 12.502H7.786a4.915 4.915 0 0 1 0-9.828h8.433a4.914 4.914 0 1 1 0 9.828z';
+
+const paths: Record<string, string> = {
+  'NestJS': siNestjs.path,
+  'Node.js': siNodedotjs.path,
+  'TypeScript': siTypescript.path,
+  'Python': siPython.path,
+  'Flask': siFlask.path,
+  'OpenCV': siOpencv.path,
+  'Java': siOpenjdk.path,
+  'C#': siDotnet.path,
+  'Flutter': siFlutter.path,
+  'Dart': siDart.path,
+  'React Native': siReact.path,
+  'React': siReact.path,
+  'Angular': siAngular.path,
+  'JavaScript': siJavascript.path,
+  'JWT': siJsonwebtokens.path,
+  'PostgreSQL': siPostgresql.path,
+  'Oracle (PL/SQL, APEX)': oracle,
+  'Docker': siDocker.path,
+  'Git': siGit.path,
+  'GitHub': siGithub.path,
+  'Railway': siRailway.path,
+  'Linux': siLinux.path,
+  'Nutanix': siNutanix.path,
+  'Cloudflare': siCloudflare.path,
+};
+
+const path = paths[Astro.props.name];
+---
+
+{path ? (
+  <svg class="tech-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
+    <path d={path} fill="currentColor" />
+  </svg>
+) : (
+  <svg class="tech-icon generic" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false">
+    <polygon points="8,1.5 14.5,8 8,14.5 1.5,8" fill="none" stroke="currentColor" stroke-width="1.5" />
+  </svg>
+)}
+
+<style>
+  .tech-icon {
+    flex-shrink: 0;
+    color: var(--ink);
+  }
+
+  .generic {
+    color: var(--ink-muted);
+  }
+</style>
