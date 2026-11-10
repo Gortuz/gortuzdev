@@ -1,0 +1,86 @@
+---
+// Diamond.astro - The logo at poster scale. Geometry is copied verbatim from
+// src/assets/logo.svg (same paths, same transforms, same fills) so the big mark
+// is the real logo, not a redraw. Each facet is wrapped in a group so the
+// entrance can move it along the logo's 45° axis without touching its transform.
+interface Props {
+  class?: string;
+  assemble?: boolean;
+  edge?: number; // outline width in screen pixels; small marks need a hairline
+}
+
+const { class: className, assemble = false, edge = 3 } = Astro.props;
+const outer = 'matrix(-0.0078539,-0.99996916,-0.99996916,0.0078539,215.79775,214.10943)';
+const inner = 'matrix(-0.01570732,-0.99987663,-0.99987663,0.01570732,216.63516,213.25872)';
+---
+
+<svg
+  class:list={['diamond', className, { assemble }]}
+  viewBox="0 0 214.95363 214.95358"
+  aria-hidden="true"
+  focusable="false"
+>
+  <g transform={outer}>
+    <g class="facet f1">
+      <g transform={inner}>
+        <path d="M 1.41418,107.48 107.48,1.41422 213.546,107.48 107.48,213.546 Z" fill="#673ab7" />
+      </g>
+    </g>
+    <g class="facet f2">
+      <g transform={inner}>
+        <path d="M 94.86204,136.11506 107.22946,13.773675 209.90132,105.35664 Z" fill="#311b92" />
+      </g>
+    </g>
+    <g class="facet f3">
+      <path d="M 3.8411927,110.09462 108.63195,211.69365 79.441449,121.79808 Z" fill="#1a0933" />
+    </g>
+    <g class="facet f4">
+      <g transform={inner}>
+        <path d="M 108.0748,75.685514 107.6121,1.5800008 209.91737,105.46337 Z" fill="#ffffff" />
+        <path d="m 105.66542,76.596945 0.85649,2.464215 -103.4797363,28.93633 z m -4.89473,1.531191 6.39215,-1.969059 -0.70207,134.828093 z" fill="#ffffff" />
+      </g>
+    </g>
+    <g class="edges">
+      <path
+        d="M 105.81419,1.427285 213.5329,105.81419 109.14621,213.53294 1.4272879,109.14621 Z M 109.14621,213.53294 138.88977,107.02519 105.81419,1.427285 M 213.5329,105.81419 139.13369,106.94453 1.4272879,109.14621"
+        fill="none"
+        stroke="#161616"
+        stroke-width={edge}
+        stroke-miterlimit="16"
+        vector-effect="non-scaling-stroke"
+      />
+    </g>
+  </g>
+</svg>
+
+<style>
+  .diamond {
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+
+  /* Signature moment: the facets assemble along the logo's 45° axis, once. */
+  @media (prefers-reduced-motion: no-preference) {
+    .assemble .facet,
+    .assemble .edges {
+      animation: facet-in 1100ms var(--ease-out) both;
+    }
+    .assemble .f1 { --dx: 0px;  --dy: 0px;  animation-delay: 60ms; }
+    .assemble .f2 { --dx: 8px;  --dy: -8px; animation-delay: 220ms; }
+    .assemble .f3 { --dx: -8px; --dy: 8px;  animation-delay: 340ms; }
+    .assemble .f4 { --dx: 6px;  --dy: 6px;  animation-delay: 480ms; }
+    .assemble .edges { --dx: 0px; --dy: 0px; animation-delay: 640ms; animation-duration: 700ms; }
+  }
+
+  @keyframes facet-in {
+    from {
+      transform: translate(var(--dx), var(--dy));
+      opacity: 0;
+    }
+    to {
+      transform: translate(0, 0);
+      opacity: 1;
+    }
+  }
+</style>
